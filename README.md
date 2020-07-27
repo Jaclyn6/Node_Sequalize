@@ -1,2 +1,2 @@
-# Node_Sequalize
-node sequalize
+# sequelize crud
+
