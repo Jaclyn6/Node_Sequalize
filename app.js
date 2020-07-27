@@ -44,9 +44,7 @@ class App {
     }
 
     setViewEngine (){
-        
-        process.env.DB_USER; //.env파일 내용에 이런식으로 접근할 수 있음
-
+    
         nunjucks.configure('template', {
             autoescape: true,
             express: this.app
