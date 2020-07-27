@@ -8,7 +8,7 @@ class App {
 
     constructor () {
         this.app = express();
-        
+        console.log("test");
         // 뷰엔진 셋팅
         this.setViewEngine();
 
