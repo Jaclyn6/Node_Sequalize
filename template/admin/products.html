@@ -16,7 +16,7 @@
             <a href="/admin/products/detail/{{product.id}}">{{ product.name }}</a>
             </td>
             <td>
-                {{ product.createdAt }}
+                {{ product.dateFormat(product.createdAt) }} <!-- models 파일(product.js)내에 정의된 dateformat함수를 이용할 수 있음 -->
             </td>
             <td>
                 <a href="#" class="btn btn-danger">삭제</a>
