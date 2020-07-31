@@ -60,3 +60,14 @@ exports.post_products_edit = (req,res) => {
         res.redirect('/admin/products/detail/' + req.params.id);
     }) 
 }
+
+//DELETE 문
+exports.get_products_delete = (req,res) => {
+    models.Products.destroy({
+        where : {
+            id : req.params.id
+        }
+    }).then(() => {
+        res.redirect('/admin/products');
+    });
+}
