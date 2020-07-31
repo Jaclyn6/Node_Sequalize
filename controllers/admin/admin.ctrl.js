@@ -33,9 +33,30 @@ exports.post_products_write = ( req , res ) => {
     // });
 }
 
+// SELECT 문
 exports.get_products_detail = (req,res) => {
     models.Products.findByPk(req.params.id).then( (result) => {
-        console.log(result);
+        //console.log(result);
         res.render('admin/detail.html', { product : result });
     });
+}
+
+exports.get_products_edit = (req,res) => {
+    models.Products.findByPk(req.params.id).then( (product) => {
+        res.render('admin/write.html', {product});
+    });
+}
+
+//Update
+exports.post_products_edit = (req,res) => {
+    models.Products.update({
+        name : req.body.name,
+        price : req.body.price,
+        description : req.body.description //update 할 데이터
+    }, {
+        where : {id : req.params.id} //조건절
+    }
+    ).then(() => {
+        res.redirect('/admin/products/detail/' + req.params.id);
+    }) 
 }
