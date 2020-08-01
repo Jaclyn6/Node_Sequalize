@@ -35,10 +35,16 @@ exports.post_products_write = ( req , res ) => {
 
 // SELECT 문
 exports.get_products_detail = (req,res) => {
-    models.Products.findByPk(req.params.id).then( (result) => {
+    const product1 = models.Products.findByPk(req.params.id).then( (result) => {
         //console.log(result);
-        res.render('admin/detail.html', { product : result });
+        
     });
+
+    const product2 = models.Products.findByPk(req.params.id).then( (result) => {
+        //console.log(result);
+        
+    });
+    res.render('admin/detail.html', { product1 : product1, product2 : product2 });
 }
 
 exports.get_products_edit = (req,res) => {
